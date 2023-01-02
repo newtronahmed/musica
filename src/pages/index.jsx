@@ -79,7 +79,7 @@ function Index() {
                 <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
                     {
                         newReleases.map((each,i) => {
-                            return (<div className='col-span-1 shrink-0 cursor-pointer active:scale-110' onClick={()=>setTrackIndex((prev)=>prev + 1)} key={each.title + '-'+ i}>
+                            return (<div className='col-span-1 shrink-0 cursor-pointer active:scale-110' onClick={()=> handleSelect({type:'newReleases', index:i})} key={each.title + '-'+ i}>
                                 <img src={each.cover} alt="album" />
                                 <div className='my-2'>
                                     {each.title}
