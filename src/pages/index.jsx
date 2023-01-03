@@ -1,22 +1,23 @@
 import React from 'react'
 import banner_1 from '/images/banner-1.png'
 import album_1 from '/images/album-1.jpg'
-import heart from '/svgs/heart.svg'
+
 import Layout from '../layouts'
 import { useGlobalContext } from '../context/global'
+import TopSongs from '../components/topSongs'
 function Index() {
     const { newReleases, handleSelect } = useGlobalContext()
     // console.log(helloworld)
     return (
         <Layout>
-            <div className="container grid grid-cols-3 gap-4">
-                <div className="col-span-2 bg-blue py-6 px-8 rounded-[2rem]">
+            <div className="container lg:grid lg:grid-cols-3 gap-4">
+                <div className="col-span-2 w-full bg-blue py-6 px-8 rounded-[2rem]">
                     <div className="grid grid-cols-2">
                         <div className="left col-span-1 flex flex-col justify-between">
                             <div>Curated playlist</div>
                             <div>
-                                <h3 className='text-4xl font-bold'>R & B Hits</h3>
-                                <div>
+                                <h3 className='text-lg lg:text-4xl font-bold'>R & B Hits</h3>
+                                <div className='text-sm lg:text-md'>
                                     All mine, Lie again, Petty call me everyday, Out of time, No love, Bad habit, and so much moreF
                                 </div>
                             </div>
@@ -32,7 +33,7 @@ function Index() {
                                     <img src="/asset/like.svg" alt="like" />
                                 </div>
                                 <div>
-                                    <span className='text-lg'>33k likes</span>
+                                    <span className='lg:text-lg'>33k likes</span>
                                 </div>
                             </div>
                         </div>
@@ -44,29 +45,15 @@ function Index() {
 
                 </div>
                 <div className="col-span-1">
-                    <h3 className="text-2xl light-primary-font-color">
+                    <h3 className="my-2 text-2xl light-primary-font-color">
                         Top Songs
                     </h3>
-                    <div className="container grid grid-rows-3">
-                        <div className='bg-secondary w-full p-2 rounded-xl'>
-                            <div className="flex items-center">
-                                <div className='flex-none'><img className='rounded-lg' src={album_1} alt="album-1" /></div>
-                                <div className='flex-1 flex flex-col justify-between px-2'>
-                                    <div className="text-xl">
-                                        Hello world
-                                    </div>
-                                    <div className="text-sm">
-                                        Hello world
-                                    </div>
-                                    <div className="text-lg">
-                                        Hello world
-                                    </div>
-                                </div>
-                                <div className='flex-none'>
-                                    <img src={heart} alt="" />
-                                </div>
-                            </div>
-                        </div>
+                    <div className="container grid grid-rows-3 gap-2">
+                        {
+                            [1, 2, 3].map((each, i) => (
+                                <TopSongs key={i} />
+                            ))
+                        }
                         <div></div>
                         <div></div>
                     </div>
@@ -78,13 +65,13 @@ function Index() {
                 </h3>
                 <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
                     {
-                        newReleases.map((each,i) => {
-                            return (<div className='col-span-1 shrink-0 cursor-pointer active:scale-110' onClick={()=> handleSelect({type:'newReleases', index:i})} key={each.title + '-'+ i}>
+                        newReleases.map((each, i) => {
+                            return (<div className='col-span-1 shrink-0 cursor-pointer active:scale-110' onClick={() => handleSelect({ type: 'newReleases', index: i })} key={each.title + '-' + i}>
                                 <img src={each.cover} alt="album" />
                                 <div className='my-2'>
                                     {each.title}
                                 </div>
-                                </div>)
+                            </div>)
                         })
                     }
                 </div>

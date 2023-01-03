@@ -22,11 +22,11 @@ export default function Footer() {
     console.log({ duration, trackProgress })
     return (
 
-        <footer className='fixed bottom-0 col-span-12 w-full row-start-3 row-end-4 h-28 p-4 bg-black z-[3]  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-t border-gray-100'>
+        <footer className='fixed bottom-0 col-span-12 w-full row-start-3 row-end-4 lg:h-28 lg:p-4 bg-black z-[3]  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-t border-gray-100'>
             <div className='flex items-center'>
                 <div className='w-1/5  flex'>
                     <div className='w-10'>
-                        <img src="/images/album-7.png" className='w-full rounded-md' alt="album 7" />
+                        <img src={track.cover} className='w-full rounded-md' alt="album 7" />
                     </div>
                     <div className='px-2'>
                         <div className="font-bold">{track.title}</div>

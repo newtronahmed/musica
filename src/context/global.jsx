@@ -70,11 +70,13 @@ function GlobalContextProvider({ children }) {
           title: "Mane me",
           audioSrc: "/audio/audio_8.mp3",
           artist: "Stonebwoy",
+          cover: "/images/album-1.png",
         },
         {
           title: "Shuga",
           audioSrc: "/audio/audio_12.mp3",
           artist: "Stonebwoy",
+          cover: "/images/album-2.png",
         },
       ],
       cover: "/public/images/album-1.jpg",
@@ -88,17 +90,19 @@ function GlobalContextProvider({ children }) {
           title: "Gringo",
           audioSrc: "/audio/audio_6.mp3",
           artist: "Shatta wale",
+          cover: "/images/album-3.png",
         },
         {
           title: "Bullet proof",
           audioSrc: "/audio/audio_7.mp3",
           artist: "Shatta wale",
+          cover: "/images/album-4.png",
         },
       ],
       cover: "/images/album-1.jpg",
     },
   ]);
-  const ALLTRACKs = {
+  const ALLTRACKS = {
     newReleases,
     albums,
     playlist
@@ -112,19 +116,22 @@ function GlobalContextProvider({ children }) {
         title: "Alkaline-mirage",
         audioSrc: "/audio/audio.mp3",
         artist: "Alkaline",
+        cover: "/images/album-5.png",
       },
       {
         title: "Strongest Soldier",
         audioSrc: "/audio/audio_1.mp3",
         artist: "Jahmiel",
+        cover: "/images/album-6.png",
       },
       {
         title: "One more night",
         audioSrc: "/audio/audio_3.mp3",
         artist: "Busy signal",
+        cover: "/images/album-5.png",
       },
-      { title: "God Mc", audioSrc: "/audio/audio_4.mp3", artist: "Manifest" },
-      { title: "Progress", audioSrc: "/audio/audio_5.mp3", artist: "Mavado" },
+      { title: "God Mc", audioSrc: "/audio/audio_4.mp3", artist: "Manifest",  cover: "/images/album-1.png", },
+      { title: "Progress", audioSrc: "/audio/audio_5.mp3", artist: "Mavado" ,  cover: "/images/album-2.png",},
     ],
   });
   const [trackIndex, setTrackIndex] = useState(0);
@@ -233,7 +240,7 @@ function GlobalContextProvider({ children }) {
   const handleSelect = ({type,index}) => {
     setTrackIndex(index)
     if(type){
-        setTracks({type, trackList: ALLTRACKs[type] })
+        setTracks({type, trackList: ALLTRACKS[type] })
     }
   }
   const onScrub = (value) => {
@@ -274,7 +281,8 @@ function GlobalContextProvider({ children }) {
         newReleases,
         setTrackIndex,
         setTracks,
-        handleSelect
+        handleSelect,
+        ALLTRACKS
       }}
     >
       {children}

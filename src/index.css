@@ -16,8 +16,9 @@
   -webkit-text-size-adjust: 100%;
 }
 
-input {
-  outline: none;
+* {
+  /* border: 2px solid red !important; */
+  box-sizing: border-box !important;
 }
 
 @tailwind base;
@@ -25,10 +26,14 @@ input {
 @tailwind utilities;
 
 @layer base {
-  html {
+  html,body {
     font-family: quicksand;
+    height: 100%;
   }
-
+  
+  input {
+    outline: none;
+  }
   input[type="range"] {
     appearance: none;
     -webkit-appearance: none;
