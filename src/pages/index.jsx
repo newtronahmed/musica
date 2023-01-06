@@ -10,10 +10,11 @@ import { NavLink } from 'react-router-dom'
 function Index() {
     const { newReleases, handleSelect, albums, topSongs } = useGlobalContext()
     // console.log(helloworld)
+    console.log(topSongs)
     return (
         <Layout>
             <div className="container lg:grid lg:grid-cols-3 mt-[4rem] sm:mt-0 px-8 lg:px-0 gap-4">
-                <div className="col-span-2 w-full bg-blue h-screen sm:h-auto py-6 px-8 rounded-[2rem]">
+                <div className="col-span-2 w-full relative bg-blue h-screen sm:h-auto py-6 px-8 rounded-[2rem]">
                     <div className="grid grid-cols-2 h-full">
                         <div className="left col-span-1 flex flex-col sm:justify-between">
                             <div className='basis-2/3'>Curated playlist</div>
@@ -39,8 +40,8 @@ function Index() {
                                 </div>
                             </div>
                         </div>
-                        <div className="right relative col-span-1" >
-                            <img src="/asset/wave.svg" className='absolute right-0 w-full' style={{ height: '100%' }} alt="wave" />
+                        <div className="right lg:relative col-span-1  " >
+                            <img src="/asset/wave.svg" className='w-[19rem] absolute -top-[1.5rem] -right-[2rem] sm:h-full sm:w-full rotate-90 sm:rotate-180' alt="wave" />
                             <img className='rounded-sm z-[1] relative hidden sm:block right-0' src={banner_1} alt="banner-1" />
                         </div>
                     </div>
@@ -53,7 +54,7 @@ function Index() {
                     <div className="container grid grid-rows-3 gap-2">
                         {
                             topSongs.map((each, i) => (
-                                <TopSongs song={each} key={i} />
+                                <TopSongs song={each} index={i} key={i} />
                             ))
                         }
                         <div></div>
@@ -79,7 +80,7 @@ function Index() {
                         }
                     </div>
                 </section>
-                <section className="py-4 mb-10">
+                <section className="py-4 mb-14">
                     <div className="text-2xl font-bold leading-relaxed">Albums</div>
                     <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
                         {

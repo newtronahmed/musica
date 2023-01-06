@@ -120,7 +120,8 @@ function GlobalContextProvider({ children }) {
             cover: "/images/album-1.jpg",
         },
     ]);
-    const topSongs = [
+    const [topSongs,setTopSongs]= useState([
+
         {
             title: "Mellisa",
             audioSrc: "/audio/audio_9.mp3",
@@ -139,7 +140,8 @@ function GlobalContextProvider({ children }) {
             artist: "Kidi",
             cover: "/images/album-2.png",
         },
-    ]
+    ])
+  
     const ALLTRACKS = {
         newReleases,
         albums,

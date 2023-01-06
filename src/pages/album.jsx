@@ -10,7 +10,7 @@ export default function Album() {
     console.log({tracks,trackIndex})
     return (
         <Layout>
-            <section className=' px-8 absolute top-0 left-0 -z-10 sm:static pt-[5rem]' style={{ background: `linear-gradient(180deg, rgba(29, 33, 35, 0.8) 0%, #1D2123 61.48%), url('/images/lead-image.jpg')`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+            <section className=' px-8 mb-[7rem] absolute top-0 left-0 -z-10 sm:static pt-[5rem]' style={{ background: `linear-gradient(180deg, rgba(29, 33, 35, 0.8) 0%, #1D2123 61.48%), url('/images/lead-image.jpg')`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
                 <div className='flex flex-wrap md:flex-nowrap gap-4 mb-8'>
                     <img className='h-2/3 w-full sm:max-w-fit rounded-[1.5rem]' src={album.cover} />
                     <div className='self-end'>
@@ -30,6 +30,7 @@ export default function Album() {
                     {
                         album.trackList.map((each,i) => {
                             return (
+                                <>
                                 <div key={i} className={` group ${  trackIndex===i ? "bg-primary-yellow": "bg-secondary"} cursor-pointer rounded-[1rem] p-4 flex items-center flex-1`} onClick={()=>handleSelect({type:'albums', index:i, albumOrPlaylist:id})}>
                                     <div className='flex  items-center flex-1'>
                                         <img src="/images/album-6.png" className='w-12 ' alt="album-6.png" />
@@ -40,13 +41,13 @@ export default function Album() {
                                     <div className=' group-hover:text-primary-yellow flex-1'>{`3:2`}</div>
                                     <div className=' group-hover:text-primary-yellow  justify-self-end '><More /> </div>
                                 </div>
+                                
+                                </>
                             )
                         })
                     }
                 </div>
-                <div className='h-[4rem] md:hidden'>
-
-                </div>
+                
             </section>
         </Layout>
     )
