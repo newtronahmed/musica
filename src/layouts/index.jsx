@@ -1,6 +1,4 @@
 import React from 'react'
-import search from '/svgs/search.svg'
-import home from '/svgs/home.svg'
 import {
     Home3, Radio,
     MusicLibrary2,
@@ -12,12 +10,14 @@ import {
 import Footer from '../components/footer'
 import { NavLink } from 'react-router-dom'
 import { useGlobalContext } from '../context/global'
-
+import {motion} from 'framer-motion'
+import animation from '../animations/motion'
 
 function Layout({ children }) {
     const {openNav, closeNav, mobileNav} = useGlobalContext()
     return (
-        <main className="lg:grid lg:grid-cols-12 lg:pr-10 relative">
+        
+        <motion.main {...animation.fadeIn} className="lg:grid lg:grid-cols-12 lg:pr-10 relative">
             <header className='sm:mb-6 py-4 z-10 flex gap-8 items-center bg:transparent w-full bg-opacity-90 backdrop-blur-sm fixed top-0  col-start-1 col-span-12 '>
                 <div className='px-4 flex items-center'>
                     <div className="mr-4 cursor-pointer sm:hidden" onClick={()=>openNav()}>
@@ -83,13 +83,13 @@ function Layout({ children }) {
                 </div>
             </nav>
             <div className='col-start-2 col-span-11 pt-4 lg:pr-6'>
-                <div className='sm:mt-[4rem] mb-[80px]'>
+                <div className='sm:mt-[4rem] '>
                     {children}
                 </div>
             </div>
             <Footer />
 
-        </main>
+        </motion.main>
 
 
     )

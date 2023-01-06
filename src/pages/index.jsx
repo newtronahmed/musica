@@ -7,13 +7,12 @@ import { useGlobalContext } from '../context/global'
 import TopSongs from '../components/topSongs'
 import { NavLink } from 'react-router-dom'
 
-
 function Index() {
     const { newReleases, handleSelect, albums, topSongs } = useGlobalContext()
     // console.log(helloworld)
     return (
         <Layout>
-            <div className="container lg:grid lg:grid-cols-3 px-4 lg:px-0 gap-4">
+            <div className="container lg:grid lg:grid-cols-3 mt-[4rem] sm:mt-0 px-8 lg:px-0 gap-4">
                 <div className="col-span-2 w-full bg-blue h-screen sm:h-auto py-6 px-8 rounded-[2rem]">
                     <div className="grid grid-cols-2 h-full">
                         <div className="left col-span-1 flex flex-col sm:justify-between">
@@ -62,7 +61,7 @@ function Index() {
                     </div>
                 </div>
             </div>
-            <div className="container flex flex-col gap-4 py-4  px-4 lg:px-0">
+            <div className="container flex flex-col gap-4 py-4  px-8 lg:px-0">
                 <section className="py-4">
                     <h3 className="text-2xl font-bold leading-relaxed">
                         New Releases
@@ -70,8 +69,8 @@ function Index() {
                     <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
                         {
                             newReleases.map((each, i) => {
-                                return (<div className='col-span-1 shrink-0 cursor-pointer active:scale-110' onClick={() => handleSelect({ type: 'newReleases', index: i })} key={each.title + '-' + i}>
-                                    <img src={each.cover} alt="album" />
+                                return (<div className=' shrink-0 cursor-pointer active:scale-110' onClick={() => handleSelect({ type: 'newReleases', index: i })} key={each.title + '-' + i}>
+                                    <img src={each.cover} className="w-[9rem]" alt="album" />
                                     <div className='my-2'>
                                         {each.title}
                                     </div>
@@ -80,13 +79,13 @@ function Index() {
                         }
                     </div>
                 </section>
-                <section className="py-4">
+                <section className="py-4 mb-10">
                     <div className="text-2xl font-bold leading-relaxed">Albums</div>
                     <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
                         {
                             albums.map((each, i) => {
-                                return (<NavLink to={`/album/albums/${i}`} className='col-span-1 shrink-0 cursor-pointer active:scale-110' key={each.title + '-' + i}>
-                                    <img src={each.cover} className="rounded-[2rem]" alt="album" />
+                                return (<NavLink to={`/album/albums/${i}`} className='col-span-1 shrink-0 cursor-pointer w-[9rem] active:scale-110' key={each.title + '-' + i}>
+                                    <img src={each.cover} className="rounded-[1rem] w=[9rem]" alt="album" />
                                     <div className='my-2 max-w-full'>
                                         {each.title}
                                     </div>
