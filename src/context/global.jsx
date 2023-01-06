@@ -120,13 +120,34 @@ function GlobalContextProvider({ children }) {
             cover: "/images/album-1.jpg",
         },
     ]);
+    const topSongs = [
+        {
+            title: "Mellisa",
+            audioSrc: "/audio/audio_9.mp3",
+            artist: "Shatta wale",
+            cover: "/images/album-5.png",
+        },
+        {
+            title: "Ofeets)n",
+            audioSrc: "/audio/audio_10.mp3",
+            artist: "Sarkodie",
+            cover: "/images/album-1.png",
+        },
+        {
+            title: "Thunder",
+            audioSrc: "/audio/audio_11.mp3",
+            artist: "Kidi",
+            cover: "/images/album-2.png",
+        },
+    ]
     const ALLTRACKS = {
         newReleases,
         albums,
-        playlist
+        playlist,
+        topSongs
     }
     //Controls state
-    const [mobileNav,setMobileNav] = useState(true)
+    const [mobileNav,setMobileNav] = useState(false)
     const [isPlaying, setPlaying] = useState(false);
     const [tracks, setTracks] = useState({
         type: "default",
@@ -284,6 +305,13 @@ function GlobalContextProvider({ children }) {
     const shuffleArray = (array) => {
         return array.sort((a, b) => Math.random() - 0.5);
     };
+    const openNav = () => {
+        setMobileNav(true)
+        console.log('Open Nav')
+    }
+    const closeNav = ()=> {
+        setMobileNav(false)
+    }
 
     return (
         <GlobalContext.Provider
@@ -291,6 +319,8 @@ function GlobalContextProvider({ children }) {
                 setPlaying,
                 isPlaying,
                 mobileNav,
+                openNav,
+                closeNav,
                 trackingPercentage,
                 duration,
                 trackProgress,
@@ -313,7 +343,8 @@ function GlobalContextProvider({ children }) {
                 albums,
                 playlist,
                 tracks,
-                trackIndex
+                trackIndex,
+                topSongs
             }}
         >
             {children}

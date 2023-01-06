@@ -9,16 +9,16 @@ import { NavLink } from 'react-router-dom'
 
 
 function Index() {
-    const { newReleases, handleSelect, albums } = useGlobalContext()
+    const { newReleases, handleSelect, albums, topSongs } = useGlobalContext()
     // console.log(helloworld)
     return (
         <Layout>
-            <div className="container lg:grid lg:grid-cols-3 gap-4">
-                <div className="col-span-2 w-full bg-blue py-6 px-8 rounded-[2rem]">
-                    <div className="grid grid-cols-2">
-                        <div className="left col-span-1 flex flex-col justify-between">
-                            <div>Curated playlist</div>
-                            <div>
+            <div className="container lg:grid lg:grid-cols-3 px-4 lg:px-0 gap-4">
+                <div className="col-span-2 w-full bg-blue h-screen sm:h-auto py-6 px-8 rounded-[2rem]">
+                    <div className="grid grid-cols-2 h-full">
+                        <div className="left col-span-1 flex flex-col sm:justify-between">
+                            <div className='basis-2/3'>Curated playlist</div>
+                            <div className='basis-1/3'>
                                 <h3 className='text-lg lg:text-4xl font-bold'>R & B Hits</h3>
                                 <div className='text-sm lg:text-md'>
                                     All mine, Lie again, Petty call me everyday, Out of time, No love, Bad habit, and so much moreF
@@ -42,19 +42,19 @@ function Index() {
                         </div>
                         <div className="right relative col-span-1" >
                             <img src="/asset/wave.svg" className='absolute right-0 w-full' style={{ height: '100%' }} alt="wave" />
-                            <img className='rounded-sm z-[1] relative right-0' src={banner_1} alt="banner-1" />
+                            <img className='rounded-sm z-[1] relative hidden sm:block right-0' src={banner_1} alt="banner-1" />
                         </div>
                     </div>
 
                 </div>
-                <div className="col-span-1">
+                <div className="py-4 sm:py-0 col-span-1">
                     <h3 className="my-2 text-2xl light-primary-font-color">
                         Top Songs
                     </h3>
                     <div className="container grid grid-rows-3 gap-2">
                         {
-                            [1, 2, 3].map((each, i) => (
-                                <TopSongs key={i} />
+                            topSongs.map((each, i) => (
+                                <TopSongs song={each} key={i} />
                             ))
                         }
                         <div></div>
@@ -62,10 +62,9 @@ function Index() {
                     </div>
                 </div>
             </div>
-            <div className="container flex flex-col gap-4 pt-4">
-                <section>
-
-                    <h3 className="text-2xl font-bold ">
+            <div className="container flex flex-col gap-4 py-4  px-4 lg:px-0">
+                <section className="py-4">
+                    <h3 className="text-2xl font-bold leading-relaxed">
                         New Releases
                     </h3>
                     <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
@@ -81,13 +80,13 @@ function Index() {
                         }
                     </div>
                 </section>
-                <section>
-                    <div className="text-2xl font-bold">Albums</div>
+                <section className="py-4">
+                    <div className="text-2xl font-bold leading-relaxed">Albums</div>
                     <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
                         {
                             albums.map((each, i) => {
-                                return (<NavLink to={`/album/albums/${i}`} className='col-span-1 shrink-0 cursor-pointer active:scale-110'  key={each.title + '-' + i}>
-                                    <img src={each.cover} alt="album" />
+                                return (<NavLink to={`/album/albums/${i}`} className='col-span-1 shrink-0 cursor-pointer active:scale-110' key={each.title + '-' + i}>
+                                    <img src={each.cover} className="rounded-[2rem]" alt="album" />
                                     <div className='my-2 max-w-full'>
                                         {each.title}
                                     </div>

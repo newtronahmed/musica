@@ -10,9 +10,9 @@ export default function Album() {
     console.log({tracks,trackIndex})
     return (
         <Layout>
-            <section className=' ' style={{ background: `linear-gradient(180deg, rgba(29, 33, 35, 0.8) 0%, #1D2123 61.48%), url('/images/lead-image.jpg')`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+            <section className=' px-8 absolute top-0 left-0 -z-10 sm:static pt-[5rem]' style={{ background: `linear-gradient(180deg, rgba(29, 33, 35, 0.8) 0%, #1D2123 61.48%), url('/images/lead-image.jpg')`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
                 <div className='flex flex-wrap md:flex-nowrap gap-4 mb-8'>
-                    <img className='rounded-[1.5rem]' src={album.cover} />
+                    <img className='h-2/3 w-full sm:max-w-fit rounded-[1.5rem]' src={album.cover} />
                     <div className='self-end'>
                         <h3 className='text-4xl font-extrabold leading-loose'>{album.title}</h3>
                         <div className='leading-relaxed w-2/3'>Lorem ipsum dolor sit amet, consectetur  adipisicing elit. Iste ab quos delectus debitis odit ad cum ut expedita assumenda! Suscipit </div>

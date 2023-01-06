@@ -82,7 +82,7 @@ input::placeholder {
 }
 
 main {
-  grid-template-rows: 6rem max-content 7rem;
+  /* grid-template-rows: 6rem max-content 7rem; */
 }
 
 .nav-svg {
