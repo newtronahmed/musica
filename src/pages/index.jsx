@@ -5,8 +5,11 @@ import album_1 from '/images/album-1.jpg'
 import Layout from '../layouts'
 import { useGlobalContext } from '../context/global'
 import TopSongs from '../components/topSongs'
+import { NavLink } from 'react-router-dom'
+
+
 function Index() {
-    const { newReleases, handleSelect } = useGlobalContext()
+    const { newReleases, handleSelect, albums } = useGlobalContext()
     // console.log(helloworld)
     return (
         <Layout>
@@ -59,22 +62,40 @@ function Index() {
                     </div>
                 </div>
             </div>
-            <div className="container py-4">
-                <h3 className="text-2xl font-bold ">
-                    New Releases
-                </h3>
-                <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
-                    {
-                        newReleases.map((each, i) => {
-                            return (<div className='col-span-1 shrink-0 cursor-pointer active:scale-110' onClick={() => handleSelect({ type: 'newReleases', index: i })} key={each.title + '-' + i}>
-                                <img src={each.cover} alt="album" />
-                                <div className='my-2'>
-                                    {each.title}
-                                </div>
-                            </div>)
-                        })
-                    }
-                </div>
+            <div className="container flex flex-col gap-4 pt-4">
+                <section>
+
+                    <h3 className="text-2xl font-bold ">
+                        New Releases
+                    </h3>
+                    <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
+                        {
+                            newReleases.map((each, i) => {
+                                return (<div className='col-span-1 shrink-0 cursor-pointer active:scale-110' onClick={() => handleSelect({ type: 'newReleases', index: i })} key={each.title + '-' + i}>
+                                    <img src={each.cover} alt="album" />
+                                    <div className='my-2'>
+                                        {each.title}
+                                    </div>
+                                </div>)
+                            })
+                        }
+                    </div>
+                </section>
+                <section>
+                    <div className="text-2xl font-bold">Albums</div>
+                    <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
+                        {
+                            albums.map((each, i) => {
+                                return (<NavLink to={`/album/albums/${i}`} className='col-span-1 shrink-0 cursor-pointer active:scale-110'  key={each.title + '-' + i}>
+                                    <img src={each.cover} alt="album" />
+                                    <div className='my-2 max-w-full'>
+                                        {each.title}
+                                    </div>
+                                </NavLink>)
+                            })
+                        }
+                    </div>
+                </section>
             </div>
         </Layout>
     )

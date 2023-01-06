@@ -4,16 +4,16 @@ import './App.css'
 import Index from './pages'
 import Layout from './layouts'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import GlobalContextProvider from './context/global'
-
+import Album from './pages/album'
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <Router>
         {/* <Layout> */}
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/album/:type/:id" element={<Album />} />
           </Routes>
         {/* </Layout> */}
     </Router>

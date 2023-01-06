@@ -20,6 +20,8 @@ export default function Footer() {
         isRepeat, isShuffle, setIsShuffle,
         setIsRepeat } = useGlobalContext()
     console.log({ duration, trackProgress })
+    const minutes = Math.floor(trackProgress / 60)
+    const seconds = Math.floor(trackProgress % 60)
     return (
 
         <footer className='fixed bottom-0 col-span-12 w-full row-start-3 row-end-4 lg:h-28 lg:p-4 bg-black z-[3]  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-t border-gray-100'>
@@ -41,8 +43,8 @@ export default function Footer() {
                         <span className='p-2 rounded-full cursor-pointer' onClick={() => nextSong()}><Next size={22} /></span>
                         <span className={`${isRepeat ? "bg-primary-yellow text-secondary" : ""} p-2 rounded-full cursor-pointer`} onClick={() => setIsRepeat(!isRepeat)}><RepeateOne size={22} /></span>
                     </div>
-                    <div>
-                        <input type="range" step="1" min="0" value={trackProgress} onChange={(e) => onScrub(e.target.value)} max={duration ? duration : ""} className='w-full rounded bg-primary-yellow' name="range" id="" style={{ backgroundSize: trackingPercentage }} />
+                    <div className='flex items-center mt-2'>
+                      <span>{`${minutes}:${seconds}`} </span> &nbsp; <input type="range" step="1" min="0" value={trackProgress} onChange={(e) => onScrub(e.target.value)} max={duration ? duration : ""} className='w-full rounded bg-primary-yellow' name="range" id="" style={{ backgroundSize: trackingPercentage }} />
                     </div>
                 </div>
                 <div className='w-1/5 flex items-center justify-center'>
