@@ -48,17 +48,16 @@ function Index() {
 
                 </div>
                 <div className="py-4 sm:py-0 col-span-1">
-                    <h3 className="my-2 text-2xl light-primary-font-color">
+                    <h3 className="my-2 text-2xl font-bold light-primary-font-color">
                         Top Songs
                     </h3>
-                    <div className="container grid grid-rows-3 gap-2">
+                    <div className="flex sm:flex-col overflow-x-scroll py-4 gap-4 scrollbar">
                         {
                             topSongs.map((each, i) => (
                                 <TopSongs song={each} index={i} key={i} />
                             ))
                         }
-                        <div></div>
-                        <div></div>
+                        
                     </div>
                 </div>
             </div>
@@ -67,7 +66,7 @@ function Index() {
                     <h3 className="text-2xl font-bold leading-relaxed">
                         New Releases
                     </h3>
-                    <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
+                    <div className="flex overflow-x-scroll gap-4 py-4 scrollbar">
                         {
                             newReleases.map((each, i) => {
                                 return (<div className=' shrink-0 cursor-pointer active:scale-110' onClick={() => handleSelect({ type: 'newReleases', index: i })} key={each.title + '-' + i}>

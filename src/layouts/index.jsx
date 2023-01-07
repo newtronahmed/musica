@@ -6,6 +6,7 @@ import {
     Profile,
     LogoutCurve,
     SearchNormal1,
+    VolumeCross
 } from 'iconsax-react'
 import Footer from '../components/footer'
 import { NavLink } from 'react-router-dom'
@@ -19,8 +20,8 @@ function Layout({ children }) {
         
         <motion.main {...animation.fadeIn} className="lg:grid lg:grid-cols-12 lg:pr-10 relative">
             <header className='sm:mb-6 py-4 z-10 flex sm:gap-10 items-center bg:transparent w-full bg-opacity-90 backdrop-blur-sm fixed top-0  col-start-1 col-span-12 '>
-                <div className='px-8 flex items-center gap-2'>
-                    <div className="mr-4 cursor-pointer sm:hidden" onClick={()=>openNav()}>
+                <div className='px-4 flex items-center gap-2'>
+                    <div className="px-4 py-2 cursor-pointer sm:hidden" onClick={()=>openNav()}>
                         <div className="w-5 h-[2px] mt-1 bg-white"></div>
                         <div className="w-5 h-[2px] mt-1 bg-white"></div>
                     </div>
@@ -35,7 +36,8 @@ function Layout({ children }) {
 
             </header>
             <nav className={` fixed left-0 top-0 bottom-0 h-screen sm:w-max right-0  transition ${mobileNav ? "translate-x-0":"-translate-x-full"} sm:top-[5rem] z-20  md:translate-x-0  sm:col-span-1 `}>
-                <div className="nav-links-container h-full py-4 sm:py-0 sm:h-auto w-full sm:w-auto  bg-secondary sm:bg-transparent  sm:ml-4 flex flex-col items-center ">
+                <div className="nav-links-container h-full py-8 sm:py-0 sm:h-auto w-full sm:w-auto  bg-secondary sm:bg-transparent  sm:ml-4 flex flex-col items-center relative">
+                    <div onClick={()=>closeNav()} className=" sm:hidden pr-8" style={{alignSelf:"flex-end"}}><VolumeCross className="text-primary-yellow cursor-pointer" /> </div>
                     <div className="flex flex-col mb-6 rounded-[2rem] w-full bg-secondary nav-svg-container-1">
                         <div className='flex gap-4 items-center cursor-pointer' onClick={()=>closeNav()}>
                             <NavLink to={"/"} className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`}>
