@@ -18,20 +18,19 @@ function Layout({ children }) {
     return (
         
         <motion.main {...animation.fadeIn} className="lg:grid lg:grid-cols-12 lg:pr-10 relative">
-            <header className='sm:mb-6 py-4 z-10 flex gap-8 items-center bg:transparent w-full bg-opacity-90 backdrop-blur-sm fixed top-0  col-start-1 col-span-12 '>
-                <div className='px-4 flex items-center'>
+            <header className='sm:mb-6 py-4 z-10 flex sm:gap-10 items-center bg:transparent w-full bg-opacity-90 backdrop-blur-sm fixed top-0  col-start-1 col-span-12 '>
+                <div className='px-8 flex items-center gap-2'>
                     <div className="mr-4 cursor-pointer sm:hidden" onClick={()=>openNav()}>
-                        <div className="w-5 h-[2px] bg-white"></div>
                         <div className="w-5 h-[2px] mt-1 bg-white"></div>
                         <div className="w-5 h-[2px] mt-1 bg-white"></div>
                     </div>
                     <img src="/svgs/logo.svg" alt="logo" />
                 </div>
-                <div className='bg-opacity-90  flex items-center flex-grow  backdrop-blur-md '>
-                    <div>
+                <div className='bg-opacity-90 justify-end sm:justify-start   flex items-center flex-grow  backdrop-blur-md '>
+                    <div className='pr-8 pl-4'>
                         <SearchNormal1 size={18} />
                     </div>
-                    <input type="text" className=' px-4 border-none bg-transparent ' placeholder='Search artist' />
+                    <input type="text" className='hidden sm:block px-4 border-none bg-transparent ' placeholder='Search artist' />
                 </div>
 
             </header>

@@ -24,9 +24,9 @@ export default function Footer() {
     const seconds = Math.floor(trackProgress % 60)
     return (
 
-        <footer className='fixed py-4 px-8 bottom-0 col-span-12 w-full row-start-3 row-end-4 lg:h-28 lg:p-4 bg-black z-[3]  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-t border-gray-100'>
+        <footer className='fixed py-4 px-12 bottom-0 col-span-12 w-full row-start-3 row-end-4 lg:h-28 lg:p-4 bg-black z-[3]  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-t border-gray-100'>
             <div className='flex items-center justify-between'>
-                <div className='sm:w-1/5  flex'>
+                <div className='sm:w-1/5  flex items-center'>
                     <div className='w-16'>
                         <img src={track.cover} className='w-16 rounded-md' alt="album 7" />
                     </div>
@@ -37,11 +37,11 @@ export default function Footer() {
                 </div>
                 <div className='sm:flex-grow'>
                     <div className='flex justify-center'>
-                        <span className={`${isShuffle ? "bg-primary-yellow text-secondary" : ""} p-2 rounded-full cursor-pointer`} onClick={() => setIsShuffle(!isShuffle)}><Shuffle size={22} /></span>
-                        <span className='p-2 rounded-full cursor-pointer' onClick={() => previousSong()}><Previous size={22} /></span>
-                        <span className='rounded-full p-2 bg-primary-yellow cursor-pointer grow-animation' onClick={() => setPlaying(!isPlaying)}>{isPlaying ? <Pause size={22} /> : <Play size={22} />}</span>
+                        <span className={`${isShuffle ? "bg-primary-yellow text-secondary" : ""} p-2 rounded-full cursor-pointer hidden sm:block`} onClick={() => setIsShuffle(!isShuffle)}><Shuffle size={22} /></span>
+                        <span className='p-2 rounded-full cursor-pointer hidden sm:block' onClick={() => previousSong()}><Previous size={22} /></span>
+                        <span className='rounded-full p-2 bg-primary-yellow shadow-2xl shadow-primary-yellow cursor-pointer backdrop-blur-md grow-animation' onClick={() => setPlaying(!isPlaying)}>{isPlaying ? <Pause  variant="Bold" size={22} /> : <Play variant="Bold"  size={22} />}</span>
                         <span className='p-2 rounded-full cursor-pointer' onClick={() => nextSong()}><Next size={22} /></span>
-                        <span className={`${isRepeat ? "bg-primary-yellow text-secondary" : ""} p-2 rounded-full cursor-pointer`} onClick={() => setIsRepeat(!isRepeat)}><RepeateOne size={22} /></span>
+                        <span className={`${isRepeat ? "bg-primary-yellow text-secondary" : ""} p-2 hidden sm:block rounded-full cursor-pointer`} onClick={() => setIsRepeat(!isRepeat)}><RepeateOne size={22} /></span>
                     </div>
                     <div className='hidden sm:flex items-center mt-2'>
                       <span>{`${minutes}:${seconds}`} </span> &nbsp; <input type="range" step="1" min="0" value={trackProgress} onChange={(e) => onScrub(e.target.value)} max={duration ? duration : ""} className='w-full rounded bg-primary-yellow' name="range" id="" style={{ backgroundSize: trackingPercentage }} />
