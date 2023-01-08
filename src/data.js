@@ -6,6 +6,8 @@ export const newReleases = [
         artist: "Shatta wale",
         cover: "/images/album-1.png",
         id: 1,
+        duration: "03:22" 
+        
     },
     {
         title: "Ofeets)n",
@@ -13,6 +15,8 @@ export const newReleases = [
         artist: "Sarkodie",
         cover: "/images/album-2.png",
         id: 2,
+        duration: "03:22" 
+        
     },
     {
         title: "Thunder",
@@ -20,6 +24,8 @@ export const newReleases = [
         artist: "Kidi",
         cover: "/images/album-3.png",
         id: 3,
+        duration: "03:22" 
+        
     },
     {
         title: "Mellisa",
@@ -27,13 +33,17 @@ export const newReleases = [
         artist: "Shatta wale",
         cover: "/images/album-4.png",
         id: 4,
+        duration: "03:22" 
+        
     },
     {
         title: "Ofeets)n",
         audioSrc: "/audio/audio_10.mp3",
         artist: "Sarkodie",
         cover: "/images/album-5.png",
-        id: 5,
+        id: 5, 
+        duration: "03:22" 
+        
     },
     {
         title: "Thunder",
@@ -41,6 +51,8 @@ export const newReleases = [
         artist: "Kidi",
         cover: "/images/album-6.png",
         id: 6,
+        duration: "03:22" 
+        
     },
     {
         title: "Mellisa",
@@ -48,6 +60,8 @@ export const newReleases = [
         artist: "Shatta wale",
         cover: "/images/album-5.png",
         id: 7,
+        duration: "03:22" 
+        
     },
     {
         title: "Ofeets)n",
@@ -55,6 +69,8 @@ export const newReleases = [
         artist: "Sarkodie",
         cover: "/images/album-1.png",
         id: 8,
+        duration: "03:22" 
+        
     },
     {
         title: "Thunder",
@@ -62,6 +78,8 @@ export const newReleases = [
         artist: "Kidi",
         cover: "/images/album-2.png",
         id: 9,
+        duration: "03:22" 
+        
     },
 ];
 export const albums = [
@@ -73,14 +91,18 @@ export const albums = [
                 audioSrc: "/audio/audio_8.mp3",
                 artist: "Stonebwoy",
                 cover: "/images/album-1.png",
-                id: 1
+                id: 1,
+                duration:"03:22"
+                 
             },
             {
                 title: "Shuga",
                 audioSrc: "/audio/audio_12.mp3",
                 artist: "Stonebwoy",
                 cover: "/images/album-2.png",
-                id: 2
+                id: 2,
+                duration:"03:22"
+                 
             },
         ],
         cover: "/asset/Lead-image.png",
@@ -93,7 +115,9 @@ export const albums = [
                 audioSrc: "/audio/audio_8.mp3",
                 artist: "Stonebwoy",
                 cover: "/images/album-1.png",
-                id: 1
+                id: 1,
+                duration:"03:22"
+                 
             },
             {
                 title: "Shuga",
@@ -101,6 +125,8 @@ export const albums = [
                 artist: "Stonebwoy",
                 cover: "/images/album-2.png",
                 id: 2,
+                duration: "03:22" 
+                
             },
         ],
         cover: "/asset/Lead-image.png",
@@ -116,6 +142,8 @@ export const playlist = [
                 artist: "Shatta wale",
                 cover: "/images/album-3.png",
                 id: 1,
+                duration: "03:22" 
+                
             },
             {
                 title: "Bullet proof",
@@ -123,6 +151,8 @@ export const playlist = [
                 artist: "Shatta wale",
                 cover: "/images/album-4.png",
                 id: 2,
+                duration: "03:22" 
+                
             },
         ],
         cover: "/images/album-1.jpg",
@@ -135,7 +165,9 @@ export const topSongs = [
         audioSrc: "/audio/audio_9.mp3",
         artist: "Shatta wale",
         cover: "/images/album-5.png",
-        id: 1
+        id: 1,
+        duration:"03:22"
+         
     },
     {
         title: "Ofeets)n",
@@ -143,6 +175,8 @@ export const topSongs = [
         artist: "Sarkodie",
         cover: "/images/album-1.png",
         id: 2,
+        duration: "03:22" 
+        
     },
     {
         title: "Thunder",
@@ -150,6 +184,8 @@ export const topSongs = [
         artist: "Kidi",
         cover: "/images/album-2.png",
         id: 3,
+        duration: "03:22" 
+        
     },
 ]
 
@@ -160,6 +196,7 @@ export const allUniqueSongs = [
         artist: "Shatta wale",
         cover: "/images/album-1.png",
         id: "4W36B3TQw4o7kjrC6TbOPZ",
+        duration: "03:22"
     },
     {
         title: "Ofeets)n",
@@ -167,6 +204,7 @@ export const allUniqueSongs = [
         artist: "Sarkodie",
         cover: "/images/album-2.png",
         id: "45RekOWSS4MBAvWPXPJNbr",
+        duration: "03:22"
     },
     {
         title: "Thunder",
@@ -181,6 +219,7 @@ export const allUniqueSongs = [
         artist: "Shatta wale",
         cover: "/images/album-3.png",
         id: 1,
+        duration: "03:22"
     },
     {
         title: "Bullet proof",
@@ -188,13 +227,15 @@ export const allUniqueSongs = [
         artist: "Shatta wale",
         cover: "/images/album-4.png",
         id: 2,
+        duration: "03:22"
     },
     {
         title: "Mane me",
         audioSrc: "/audio/audio_8.mp3",
         artist: "Stonebwoy",
         cover: "/images/album-1.png",
-        id: 1
+        id: 1,
+        duration: "03:22"
     },
     {
         title: "Shuga",
@@ -202,6 +243,7 @@ export const allUniqueSongs = [
         artist: "Stonebwoy",
         cover: "/images/album-2.png",
         id: 2,
+        duration: "03:22"
     },
     {
         title: "Alkaline-mirage",
@@ -209,6 +251,7 @@ export const allUniqueSongs = [
         artist: "Alkaline",
         cover: "/images/album-5.png",
         id:1,
+        duration: "03:22"
     },
     {
         title: "Strongest Soldier",
@@ -216,6 +259,7 @@ export const allUniqueSongs = [
         artist: "Jahmiel",
         cover: "/images/album-6.png",
         id:2,
+        duration: "03:22"
     },
     {
         title: "One more night",
@@ -223,8 +267,9 @@ export const allUniqueSongs = [
         artist: "Busy signal",
         cover: "/images/album-5.png",
         id:3,
+        duration: "03:22"
     },
-    { id:4, title: "God Mc", audioSrc: "/audio/audio_4.mp3", artist: "Manifest", cover: "/images/album-1.png", },
-    { id:5, title: "Progress", audioSrc: "/audio/audio_5.mp3", artist: "Mavado", cover: "/images/album-2.png", },
+    { id:4, title: "God Mc", audioSrc: "/audio/audio_4.mp3", artist: "Manifest", cover: "/images/album-1.png",duration: "03:22"  },
+    { id:5, title: "Progress", audioSrc: "/audio/audio_5.mp3", artist: "Mavado", cover: "/images/album-2.png",duration: "03:22"  },
     
 ]

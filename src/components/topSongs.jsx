@@ -15,8 +15,8 @@ export default function TopSongs({ song, index }) {
                     <div className="text-sm text-gray-500">
                         {song.artist}
                     </div>
-                    <div className="text-sm mt-4 sm:mt-0">
-                        N/A
+                    <div className="text-xs mt-4 sm:mt-2">
+                        {song.duration ?? "N/A"}
                     </div>
                 </div>
             </div>

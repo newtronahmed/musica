@@ -31,19 +31,19 @@ export default function Album() {
                         album.trackList.map((each, i) => {
                             return (
                                 <>
-                                    <div key={i} className={` group bg-secondary shadow-md cursor-pointer sm:justify-between rounded-[1rem] p-2 sm:p-4 flex items-center flex-1`} onClick={() => handleSelect({ type: 'albums', index: i, albumOrPlaylist: id })}>
-                                        <div className='flex  items-center mr-4'>
+                                    <div key={i} className={` group bg-secondary shadow-md cursor-pointer sm:grid sm:grid-cols-5 rounded-[1rem] p-2 sm:p-4 flex items-center flex-1`} onClick={() => handleSelect({ type: 'albums', index: i, albumOrPlaylist: id })}>
+                                        <div className='flex sm:col-span-1  items-center mr-4'>
                                             <img src="/images/album-6.png" className='w-10 sm:w-14 ' alt="album-6.png" />
                                             <Heart className='ml-8 hidden sm:block group-hover:text-primary-yellow' />
                                         </div>
-                                        <div className='grow sm:flex'>
+                                        <div className='grow sm:flex sm:col-span-2'>
                                             <div className=' group-hover:text-primary-yellow font-semibold flex-1'>{each.title}</div>
-                                            <div className=' group-hover:text-primary-yellow flex-1 text-sm sm:text-base'>{album.title}</div>
+                                            <div className=' group-hover:text-primary-yellow flex-1 text-xs sm:text-base'>{album.title}</div>
 
                                         </div>
-                                        <div className='sm:flex'>
-                                            <div className=' group-hover:text-primary-yellow mb-1 text-primary-yellow '><More className='transform rotate-90' /> </div>
-                                            <div className=' group-hover:text-primary-yellow text-sm sm:text-base text-ellipsis'>{`3:2`}</div>
+                                        <div className='sm:flex sm:justify-between sm:col-span-2'>
+                                            <div className=' group-hover:text-primary-yellow mb-1    sm:order-2 text-primary-yellow '><More className='transform rotate-90' /> </div>
+                                            <div className=' group-hover:text-primary-yellow text-sm  sm:mx-auto sm:order-1 sm:text-base text-ellipsis'>{`3:2`}</div>
                                         </div>
                                     </div>
 

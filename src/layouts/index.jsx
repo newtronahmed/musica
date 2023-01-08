@@ -54,7 +54,7 @@ function Layout({ children }) {
 
             <nav className={` fixed left-0 top-0 bottom-0 h-screen sm:w-max right-0  transition ${mobileNav ? "translate-x-0" : "-translate-x-full"} sm:top-[5rem] z-20  md:translate-x-0  sm:col-span-1 `}>
                 <div className="nav-links-container h-full py-8 sm:py-0 sm:h-auto w-full sm:w-auto  bg-secondary sm:bg-transparent  sm:ml-4 flex flex-col items-center relative">
-                    <div onClick={() => closeNav()} className=" sm:hidden pr-8" style={{ alignSelf: "flex-end" }}><VolumeCross className="text-primary-yellow cursor-pointer" /> </div>
+                    <div onClick={() => closeNav()} className=" sm:hidden pr-8" style={{ alignSelf: "flex-end" }}><CloseCircle className="text-primary-yellow cursor-pointer" /> </div>
                     <div className="flex flex-col mb-6 rounded-[2rem] w-full bg-secondary nav-svg-container-1">
                         <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
                             <NavLink to={"/"} className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`}>
