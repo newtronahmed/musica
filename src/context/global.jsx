@@ -20,29 +20,8 @@ function GlobalContextProvider({ children }) {
     const [isPlaying, setPlaying] = useState(false);
     const [tracks, setTracks] = useState({
         type: "default",
-        trackList: [
-            {
-                title: "Alkaline-mirage",
-                audioSrc: "/audio/audio.mp3",
-                artist: "Alkaline",
-                cover: "/images/album-5.png",
-            },
-            {
-                title: "Strongest Soldier",
-                audioSrc: "/audio/audio_1.mp3",
-                artist: "Jahmiel",
-                cover: "/images/album-6.png",
-            },
-            {
-                title: "One more night",
-                audioSrc: "/audio/audio_3.mp3",
-                artist: "Busy signal",
-                cover: "/images/album-5.png",
-            },
-            { title: "God Mc", audioSrc: "/audio/audio_4.mp3", artist: "Manifest", cover: "/images/album-1.png", },
-            { title: "Progress", audioSrc: "/audio/audio_5.mp3", artist: "Mavado", cover: "/images/album-2.png", },
-        ],
-    });
+        trackList:allUniqueSongs
+     });
     const [trackIndex, setTrackIndex] = useState(0);
     const [trackProgress, setTrackProgress] = useState(0);
     const [isRepeat, setIsRepeat] = useState(false);

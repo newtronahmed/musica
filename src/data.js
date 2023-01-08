@@ -191,6 +191,14 @@ export const topSongs = [
 
 export const allUniqueSongs = [
     {
+        title: "Mirage",
+        audioSrc: "/audio/audio.mp3",
+        artist: "Alkaline",
+        cover: "/images/album-5.png",
+        id:1,
+        duration: "03:22"
+    },
+    {
         title: "Mellisa",
         audioSrc: "/audio/audio_9.mp3",
         artist: "Shatta wale",
@@ -245,14 +253,7 @@ export const allUniqueSongs = [
         id: 2,
         duration: "03:22"
     },
-    {
-        title: "Alkaline-mirage",
-        audioSrc: "/audio/audio.mp3",
-        artist: "Alkaline",
-        cover: "/images/album-5.png",
-        id:1,
-        duration: "03:22"
-    },
+    
     {
         title: "Strongest Soldier",
         audioSrc: "/audio/audio_1.mp3",
