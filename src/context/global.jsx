@@ -2,146 +2,13 @@ import { Shuffle } from "iconsax-react";
 import React from "react";
 import { createContext, useContext, useEffect, useRef } from "react";
 import { useState } from "react";
+import { newReleases, albums, playlist, topSongs, allUniqueSongs } from "../data";
 const GlobalContext = createContext();
 function GlobalContextProvider({ children }) {
     // const [helloworld, setHelloworld] = useState('hello world')
 
-    const [newReleases, setNewReleases] = useState([
-        {
-            title: "Mellisa",
-            audioSrc: "/audio/audio_9.mp3",
-            artist: "Shatta wale",
-            cover: "/images/album-1.png",
-        },
-        {
-            title: "Ofeets)n",
-            audioSrc: "/audio/audio_10.mp3",
-            artist: "Sarkodie",
-            cover: "/images/album-2.png",
-        },
-        {
-            title: "Thunder",
-            audioSrc: "/audio/audio_11.mp3",
-            artist: "Kidi",
-            cover: "/images/album-3.png",
-        },
-        {
-            title: "Mellisa",
-            audioSrc: "/audio/audio_9.mp3",
-            artist: "Shatta wale",
-            cover: "/images/album-4.png",
-        },
-        {
-            title: "Ofeets)n",
-            audioSrc: "/audio/audio_10.mp3",
-            artist: "Sarkodie",
-            cover: "/images/album-5.png",
-        },
-        {
-            title: "Thunder",
-            audioSrc: "/audio/audio_11.mp3",
-            artist: "Kidi",
-            cover: "/images/album-6.png",
-        },
-        {
-            title: "Mellisa",
-            audioSrc: "/audio/audio_9.mp3",
-            artist: "Shatta wale",
-            cover: "/images/album-5.png",
-        },
-        {
-            title: "Ofeets)n",
-            audioSrc: "/audio/audio_10.mp3",
-            artist: "Sarkodie",
-            cover: "/images/album-1.png",
-        },
-        {
-            title: "Thunder",
-            audioSrc: "/audio/audio_11.mp3",
-            artist: "Kidi",
-            cover: "/images/album-2.png",
-        },
-    ]);
-    const [albums, setAlbums] = useState([
-        {
-            title: "Stonebwoy 2017 album",
-            trackList: [
-                {
-                    title: "Mane me",
-                    audioSrc: "/audio/audio_8.mp3",
-                    artist: "Stonebwoy",
-                    cover: "/images/album-1.png",
-                },
-                {
-                    title: "Shuga",
-                    audioSrc: "/audio/audio_12.mp3",
-                    artist: "Stonebwoy",
-                    cover: "/images/album-2.png",
-                },
-            ],
-            cover: "/asset/Lead-image.png",
-        },
-        {
-            title: "Another Stonebwoy 2017 album",
-            trackList: [
-                {
-                    title: "Mane me",
-                    audioSrc: "/audio/audio_8.mp3",
-                    artist: "Stonebwoy",
-                    cover: "/images/album-1.png",
-                },
-                {
-                    title: "Shuga",
-                    audioSrc: "/audio/audio_12.mp3",
-                    artist: "Stonebwoy",
-                    cover: "/images/album-2.png",
-                },
-            ],
-            cover: "/asset/Lead-image.png",
-        },
-    ]);
-    const [playlist, setPlaylist] = useState([
-        {
-            title: "Shatta wale 2018",
-            trackList: [
-                {
-                    title: "Gringo",
-                    audioSrc: "/audio/audio_6.mp3",
-                    artist: "Shatta wale",
-                    cover: "/images/album-3.png",
-                },
-                {
-                    title: "Bullet proof",
-                    audioSrc: "/audio/audio_7.mp3",
-                    artist: "Shatta wale",
-                    cover: "/images/album-4.png",
-                },
-            ],
-            cover: "/images/album-1.jpg",
-        },
-    ]);
-    const [topSongs,setTopSongs]= useState([
 
-        {
-            title: "Mellisa",
-            audioSrc: "/audio/audio_9.mp3",
-            artist: "Shatta wale",
-            cover: "/images/album-5.png",
-        },
-        {
-            title: "Ofeets)n",
-            audioSrc: "/audio/audio_10.mp3",
-            artist: "Sarkodie",
-            cover: "/images/album-1.png",
-        },
-        {
-            title: "Thunder",
-            audioSrc: "/audio/audio_11.mp3",
-            artist: "Kidi",
-            cover: "/images/album-2.png",
-        },
-    ])
-  
+
     const ALLTRACKS = {
         newReleases,
         albums,
@@ -149,7 +16,7 @@ function GlobalContextProvider({ children }) {
         topSongs
     }
     //Controls state
-    const [mobileNav,setMobileNav] = useState(false)
+    const [mobileNav, setMobileNav] = useState(false)
     const [isPlaying, setPlaying] = useState(false);
     const [tracks, setTracks] = useState({
         type: "default",
@@ -182,6 +49,10 @@ function GlobalContextProvider({ children }) {
     const [isShuffle, setIsShuffle] = useState(false);
     const [volume, setVolume] = useState(100);
 
+    const [searchTracklist, setSearchTracklist] = useState([])
+    const [searchQuery, setSearchQuery] = useState('')
+    const [openSearch, setOpenSearch] = useState(false)
+
     //refs
     const track = tracks.trackList[trackIndex];
     const { title, audioSrc } = track;
@@ -190,7 +61,7 @@ function GlobalContextProvider({ children }) {
     const intervalRef = useRef();
     // const intervalRef = useRef(null)
     const { duration } = audioRef.current;
-    
+
     const trackingPercentage = duration
         ? `${(trackProgress / duration) * 100}% 100%`
         : `0% 100%`;
@@ -223,7 +94,7 @@ function GlobalContextProvider({ children }) {
     const playMusic = () => {
         audioRef.current.pause();
         audioRef.current = new Audio(audioSrc);
-        console.info('album song src'+audioSrc)
+        console.info('album song src' + audioSrc)
         setTrackProgress(audioRef.current.currentTime);
         if (isReady.current) {
             audioRef.current.play();
@@ -284,12 +155,14 @@ function GlobalContextProvider({ children }) {
     };
     const handleSelect = ({ type, albumOrPlaylist, index }) => {
         // console.log(type,index)
-        
+
         setTrackIndex(index)
-        if (albumOrPlaylist) {
+        if (type === "search") {
+            setTracks({type, trackList: searchTracklist})
+        } else if (albumOrPlaylist) {
             setTracks({ type, trackList: ALLTRACKS[type][albumOrPlaylist]["trackList"] })
-        }else {
-            setTracks({type, trackList: ALLTRACKS[type]})
+        } else {
+            setTracks({ type, trackList: ALLTRACKS[type] })
         }
     }
     const onScrub = (value) => {
@@ -311,8 +184,23 @@ function GlobalContextProvider({ children }) {
         setMobileNav(true)
         console.log('Open Nav')
     }
-    const closeNav = ()=> {
+    const closeNav = () => {
         setMobileNav(false)
+    }
+
+    const handleSearch = ({target: { value }}) => {
+        setSearchQuery(value)
+        setOpenSearch(true)
+        const filtered = allUniqueSongs.filter((each, i) => {
+            return each.title.toLowerCase().includes(value.toLowerCase()) || each.artist.toLowerCase().includes(value.toLowerCase())
+        })
+        console.log({ filtered, value })
+        if (value !== "") {
+            setSearchTracklist(filtered)
+        } else {
+            setSearchTracklist([])
+        }
+        // setTracks(filtered)
     }
 
     return (
@@ -346,7 +234,12 @@ function GlobalContextProvider({ children }) {
                 playlist,
                 tracks,
                 trackIndex,
-                topSongs
+                topSongs,
+                handleSearch,
+                searchQuery,
+                searchTracklist,
+                openSearch,
+                setOpenSearch,
             }}
         >
             {children}
