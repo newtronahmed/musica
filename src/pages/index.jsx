@@ -8,7 +8,7 @@ import TopSongs from '../components/topSongs'
 import { NavLink } from 'react-router-dom'
 
 function Index() {
-    const { newReleases, handleSelect, albums, topSongs } = useGlobalContext()
+    const { newReleases, handleSelect, albums, topSongs, playlists  } = useGlobalContext()
     // console.log(helloworld)
     console.log(topSongs)
     return (
@@ -80,13 +80,28 @@ function Index() {
                         }
                     </div>
                 </section>
-                <section className="py-4 mb-14">
+                <section className="py-4">
                     <div className="text-2xl font-bold leading-relaxed">Albums</div>
                     <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
                         {
                             albums.map((each, i) => {
                                 return (<NavLink to={`/album/albums/${i}`} className='col-span-1 shrink-0 cursor-pointer w-[9rem] active:scale-110' key={each.title + '-' + i}>
                                     <img src={each.cover} className="rounded-[1rem] w=[9rem]" alt="album" />
+                                    <div className='my-2 max-w-full'>
+                                        {each.title}
+                                    </div>
+                                </NavLink>)
+                            })
+                        }
+                    </div>
+                </section>
+                <section className="py-4 mb-14">
+                    <div className="text-2xl font-bold leading-relaxed">Playlists</div>
+                    <div className="flex overflow-x-scroll gap-3 py-4 scrollbar">
+                        {
+                            playlists.map((each, i) => {
+                                return (<NavLink to={`/album/playlists/${i}`} className='col-span-1 shrink-0 cursor-pointer w-[9rem] active:scale-110' key={each.title + '-' + i}>
+                                    <img src={each.cover} className="rounded-[1rem] w=[9rem]" alt="playlist" />
                                     <div className='my-2 max-w-full'>
                                         {each.title}
                                     </div>

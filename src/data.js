@@ -132,7 +132,7 @@ export const albums = [
         cover: "/asset/Lead-image.png",
     },
 ];
-export const playlist = [
+export const playlists = [
     {
         title: "Shatta wale 2018",
         trackList: [
@@ -155,7 +155,7 @@ export const playlist = [
                 
             },
         ],
-        cover: "/images/album-1.jpg",
+        cover: "/images/album-1.png",
     },
 ];
 export const topSongs = [

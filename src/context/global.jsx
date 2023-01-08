@@ -2,7 +2,7 @@ import { Shuffle } from "iconsax-react";
 import React from "react";
 import { createContext, useContext, useEffect, useRef } from "react";
 import { useState } from "react";
-import { newReleases, albums, playlist, topSongs, allUniqueSongs } from "../data";
+import { newReleases, albums, playlists, topSongs, allUniqueSongs } from "../data";
 const GlobalContext = createContext();
 function GlobalContextProvider({ children }) {
     // const [helloworld, setHelloworld] = useState('hello world')
@@ -12,7 +12,7 @@ function GlobalContextProvider({ children }) {
     const ALLTRACKS = {
         newReleases,
         albums,
-        playlist,
+        playlists,
         topSongs
     }
     //Controls state
@@ -210,7 +210,7 @@ function GlobalContextProvider({ children }) {
                 handleSelect,
                 ALLTRACKS,
                 albums,
-                playlist,
+                playlists,
                 tracks,
                 trackIndex,
                 topSongs,
