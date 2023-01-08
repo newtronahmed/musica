@@ -10,7 +10,7 @@ import {
     CloseCircle
 } from 'iconsax-react'
 import Footer from '../components/footer'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useGlobalContext } from '../context/global'
 import { motion } from 'framer-motion'
 import animation from '../animations/motion'
@@ -57,13 +57,13 @@ function Layout({ children }) {
                     <div onClick={() => closeNav()} className=" sm:hidden pr-8" style={{ alignSelf: "flex-end" }}><CloseCircle className="text-primary-yellow cursor-pointer" /> </div>
                     <div className="flex flex-col mb-6 rounded-[2rem] w-full bg-secondary nav-svg-container-1">
                         <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
-                            <NavLink to={"/"} className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`}>
+                            <NavLink to={"/home"} className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`}>
                                 <Home3 variant="Bold" size={27} />
                             </NavLink>
                             <div className='sm:hidden px-4'>Home</div>
                         </div>
                         <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
-                            <NavLink to="music" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
+                            <NavLink to="/music" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
                                 <MusicLibrary2 variant="Bold" size={27} />
                             </NavLink>
                             <div className='sm:hidden px-4'>Collections </div>
