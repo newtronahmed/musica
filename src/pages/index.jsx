@@ -14,9 +14,9 @@ function Index() {
     return (
         <Layout>
             <div className="container lg:grid lg:grid-cols-3 mt-[4rem] sm:mt-0 px-8 lg:px-0 gap-4">
-                <div className="col-span-2 w-full relative bg-blue overflow-hidden h-screen sm:h-auto py-6 px-8 rounded-[2rem]">
-                    <div className="grid grid-cols-2 h-full">
-                        <div className="left col-span-1 flex flex-col sm:justify-between">
+                <div className="col-span-2 w-full relative bg-blue overflow-hidden h-screen sm:h-auto  px-8 rounded-[2rem]">
+                    <div className="grid grid-cols-5 h-full">
+                        <div className="left col-span-2 py-6 flex flex-col sm:justify-between">
                             <div className='basis-2/3'>Curated playlist</div>
                             <div className='basis-1/3'>
                                 <h3 className='text-lg lg:text-4xl font-bold'>R & B Hits</h3>
@@ -40,9 +40,9 @@ function Index() {
                                 </div>
                             </div>
                         </div>
-                        <div className="right lg:relative col-span-1  " >
-                            <img src="/asset/wave.svg" className='w-[19rem] absolute -top-[3rem] -right-[4rem] sm:h-full sm:w-full rotate-90 sm:rotate-180' alt="wave" />
-                            <img className='rounded-sm z-[1] relative hidden sm:block right-0' src={banner_1} alt="banner-1" />
+                        <div className="right relative col-span-3  " >
+                            <img src="/asset/wave.svg" className=' absolute -top-[3rem] -right-[4rem] sm:top-0 right:0 sm:h-full sm:w-full rotate-90 sm:rotate-0' alt="wave" />
+                            <img className=' z-[1] absolute bottom-0 hidden sm:block right-0' src={banner_1} alt="banner-1" />
                         </div>
                     </div>
 
