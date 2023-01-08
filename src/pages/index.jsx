@@ -13,8 +13,8 @@ function Index() {
     console.log(topSongs)
     return (
         <Layout>
-            <div className="container lg:grid lg:grid-cols-3 mt-[4rem] sm:mt-0 px-8 lg:px-0 gap-4">
-                <div className="col-span-2 w-full relative bg-blue overflow-hidden h-screen sm:h-auto  px-8 rounded-[2rem]">
+            <div className="container lg:grid lg:grid-cols-3 mt-[4rem] sm:mt-0 px-8 sm:px-0 gap-4 ">
+                <div className="col-span-2 w-full relative bg-blue overflow-hidden h-[calc(100vh_-_12rem)] sm:h-auto  sm:pr-0 px-8 rounded-[2rem]">
                     <div className="grid grid-cols-5 h-full">
                         <div className="left col-span-2 py-6 flex flex-col sm:justify-between">
                             <div className='basis-2/3'>Curated playlist</div>
@@ -41,8 +41,8 @@ function Index() {
                             </div>
                         </div>
                         <div className="right relative col-span-3  " >
-                            <img src="/asset/wave.svg" className=' absolute -top-[3rem] -right-[4rem] sm:top-0 right:0 sm:h-full sm:w-full rotate-90 sm:rotate-0' alt="wave" />
-                            <img className=' z-[1] absolute bottom-0 hidden sm:block right-0' src={banner_1} alt="banner-1" />
+                            <img src="/asset/wave.svg" className=' absolute -top-[3rem] -right-[4rem] sm:top-0 sm:right-0 sm:h-full sm:w-full rotate-90 sm:rotate-0' alt="wave" />
+                            <img className=' z-[1] bottom-0 hidden sm:block sm:absolute right-[-1rem]' src={banner_1} alt="banner-1" />
                         </div>
                     </div>
 

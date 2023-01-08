@@ -34,13 +34,13 @@ function Layout({ children }) {
                     <div className='pr-8 pl-4 cursor-pointer'>
                         <SearchNormal1 size={18} onClick={() => setOpenSearch(true)} />
                     </div>
-                    <input type="text" onChange={(e) => handleSearch(e)} className='hidden sm:block px-4 border-none bg-transparent ' value={searchQuery} placeholder='Search artist' />
+                    <input type="text" onChange={(e) => handleSearch(e)} className='hidden caret-primary-yellow sm:block px-4 border-none bg-transparent ' value={searchQuery} placeholder='Search artist' />
                 </div>
 
             </header>
             <div className={`${openSearch ? "block" : "hidden"} px-6 transition-all ease  sm:right-0  absolute z-30  top-0 sm:top-[4.5rem] left-0 `}>
                 <div className={`h-16 w-full py-4 flex items-center sm:hidden`}>
-                    <input type="text" onChange={(e) => handleSearch(e)} className=' h-14  sm:block px-4 border-none bg-secondary p-4' value={searchQuery} placeholder='Search artist' /> <span className='p-2 cursor-pointer' onClick={()=>setOpenSearch(false)}><CloseCircle /></span> 
+                    <input type="text" onChange={(e) => handleSearch(e)} className=' h-14  caret-primary-yellow sm:block px-4 border-none bg-secondary p-4' value={searchQuery} placeholder='Search artist' /> <span className='p-2 cursor-pointer' onClick={()=>setOpenSearch(false)}><CloseCircle /></span> 
                 </div>
                 <div className=' bg-secondary '>
                     {
