@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import {
     Home3, Radio,
     MusicLibrary2,
@@ -17,12 +17,19 @@ import animation from '../animations/motion'
 import { useState } from 'react'
 
 function Layout({ children }) {
-    const { openNav, closeNav, mobileNav, handleSearch, searchQuery, searchTracklist,openSearch,setOpenSearch, handleSelect } = useGlobalContext()
+    const { openNav, closeNav, mobileNav, handleSearch, searchQuery, searchTracklist, openSearch, setOpenSearch, handleSelect, } = useGlobalContext()
     // const [searchQuery,setSearchQuery] = useState('')
+    const searchInputRef = useRef(null)
+
+    const handleOpenSearch = () => {
+        searchInputRef.current.focus()
+        console.log(searchInputRef)
+        setOpenSearch(true)
+    }
     return (
 
         <motion.main {...animation.fadeIn} className="lg:grid lg:grid-cols-12 lg:pr-10 relative">
-            <header className={`${openSearch? "hidden" : "flex"}  sm:mb-6 py-4 z-10 sm:flex sm:gap-10 items-center bg:transparent w-full bg-opacity-90 backdrop-blur-sm fixed top-0  col-start-1 col-span-12 `}>
+            <header className={`${openSearch ? "hidden" : "flex"}  sm:mb-6 py-4 z-10 sm:flex sm:gap-10 items-center bg:transparent w-full bg-opacity-90 backdrop-blur-sm fixed top-0  col-start-1 col-span-12 `}>
                 <div className='px-4 flex items-center gap-2'>
                     <div className="px-4 py-2 cursor-pointer sm:hidden" onClick={() => openNav()}>
                         <div className="w-5 h-[2px] mt-1 bg-white"></div>
@@ -32,7 +39,7 @@ function Layout({ children }) {
                 </div>
                 <div className='bg-opacity-90 justify-end sm:justify-start   flex items-center flex-grow  backdrop-blur-md '>
                     <div className='pr-8 pl-4 cursor-pointer'>
-                        <SearchNormal1 size={18} onClick={() => setOpenSearch(true)} />
+                        <SearchNormal1 size={18} onClick={() => handleOpenSearch()} />
                     </div>
                     <input type="text" onChange={(e) => handleSearch(e)} className='hidden caret-primary-yellow sm:block px-4 border-none bg-transparent ' value={searchQuery} placeholder='Search artist' />
                 </div>
@@ -40,13 +47,13 @@ function Layout({ children }) {
             </header>
             <div className={`${openSearch ? "block" : "hidden"} px-6 transition-all ease  sm:right-0  absolute z-30  top-0 sm:top-[4.5rem] left-0 `}>
                 <div className={`h-16 w-full py-4 flex items-center sm:hidden`}>
-                    <input type="text" onChange={(e) => handleSearch(e)} className=' h-14  caret-primary-yellow sm:block px-4 border-none bg-secondary p-4' value={searchQuery} placeholder='Search artist' /> <span className='p-2 cursor-pointer' onClick={()=>setOpenSearch(false)}><CloseCircle /></span> 
+                    <input type="text" autoFocus={true} ref={searchInputRef} onChange={(e) => handleSearch(e)} className=' h-14  caret-primary-yellow sm:block px-4 border-none bg-secondary p-4' value={searchQuery} placeholder='Search artist' /> <span className='p-2 cursor-pointer' onClick={() => setOpenSearch(false)}><CloseCircle /></span>
                 </div>
                 <div className=' bg-secondary '>
                     {
-                        searchTracklist.map((each,i)=>{
-                            return <li onClick={()=>handleSelect({type:"search",index:i})} className='p-2 list-none bg-secondary cursor-pointer text-xl' key={i}>{` ${each.title} - ${each.artist}`}</li>
-                            
+                        searchTracklist.map((each, i) => {
+                            return <li onClick={() => handleSelect({ type: "search", index: i })} className='p-2 list-none bg-secondary cursor-pointer text-xl' key={i}>{` ${each.title} - ${each.artist}`}</li>
+
                         })
                     }
                 </div>
@@ -56,45 +63,45 @@ function Layout({ children }) {
                 <div className="nav-links-container h-full py-8 sm:py-0 sm:h-auto w-full sm:w-auto  bg-secondary sm:bg-transparent  sm:ml-4 flex flex-col items-center relative">
                     <div onClick={() => closeNav()} className=" sm:hidden pr-8" style={{ alignSelf: "flex-end" }}><CloseCircle className="text-primary-yellow cursor-pointer" /> </div>
                     <div className="flex flex-col mb-6 rounded-[2rem] w-full bg-secondary nav-svg-container-1">
-                        <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
-                            <NavLink to={"/home"} className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`}>
+                        <NavLink to={"/home"} className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`}>
+                            <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
                                 <Home3 variant="Bold" size={27} />
-                            </NavLink>
-                            <div className='sm:hidden px-4'>Home</div>
-                        </div>
-                        <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
-                            <NavLink to="/music" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
+                                <div className='sm:hidden px-4'>Home</div>
+                            </div>
+                        </NavLink>
+                        <NavLink to="/music" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
+                            <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
                                 <MusicLibrary2 variant="Bold" size={27} />
-                            </NavLink>
-                            <div className='sm:hidden px-4'>Collections </div>
-                        </div>
-                        <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
-                            <NavLink to="/radio" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
+                                <div className='sm:hidden px-4'>Collections </div>
+                            </div>
+                        </NavLink>
+                        <NavLink to="/radio" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
+                            <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
                                 <Radio variant="Bold" size={27} />
-                            </NavLink>
-                            <div className='sm:hidden px-4'>Radio</div>
-                        </div>
-                        <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
-                            <NavLink to="/video" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
+                                <div className='sm:hidden px-4'>Radio</div>
+                            </div>
+                        </NavLink>
+                        <NavLink to="/video" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
+                            <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
                                 <VideoHorizontal variant="Bold" size={27} />
-                            </NavLink>
-                            <div className='sm:hidden px-4'>Videos</div>
-                        </div>
+                                <div className='sm:hidden px-4'>Videos</div>
+                            </div>
+                        </NavLink>
 
                     </div>
                     <div className="flex flex-col flex-none w-full bg-secondary rounded-[2rem] py-2">
-                        <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
-                            <NavLink to="/profile" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
+                        <NavLink to="/profile" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
+                            <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
                                 <Profile variant="Bold" size={27} />
-                            </NavLink>
-                            <div className='sm:hidden px-4'>Profile</div>
-                        </div>
-                        <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
-                            <NavLink to="/logout" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
+                                <div className='sm:hidden px-4'>Profile</div>
+                            </div>
+                        </NavLink>
+                        <NavLink to="/logout" className={({ isActive }) => `nav-link ${isActive ? "text-primary-yellow" : ''}`} >
+                            <div className='flex gap-4 items-center cursor-pointer' onClick={() => closeNav()}>
                                 <LogoutCurve variant="Bold" size={27} />
-                            </NavLink>
-                            <div className='sm:hidden px-4'>Logout</div>
-                        </div>
+                                <div className='sm:hidden px-4'>Logout</div>
+                            </div>
+                        </NavLink>
 
 
                     </div>

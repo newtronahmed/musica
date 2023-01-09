@@ -14,8 +14,8 @@ function Index() {
     return (
         <Layout>
             <div className="container lg:grid lg:grid-cols-3 mt-[4rem] sm:mt-0 px-8 sm:px-0 gap-4 ">
-                <div className="col-span-2 w-full relative bg-blue overflow-hidden h-[80vw] sm:h-auto  sm:pr-0 px-8 rounded-[2rem]">
-                    <div className="grid grid-cols-5 h-full">
+                <div className="col-span-2 w-full relative bg-blue shadow-current overflow-hidden h-[80vw] sm:h-auto  sm:pr-0 px-8 rounded-[2rem]">
+                    <div className="grid grid-cols-5 h-full relative">
                         <div className="left col-span-4 sm:col-span-2 py-6 flex flex-col sm:justify-between">
                             <div className='basis-2/3'>Curated playlist</div>
                             <div className='basis-1/3'>
@@ -25,13 +25,13 @@ function Index() {
                                 <span className='block sm:inline'>Out of time, No love, Bad habit, and so much more</span> 
                                 </div>
                             </div>
-                            <div className='flex items-center mt-2 sm:mt-0'>
+                            <div className='flex items-center mt-2 sm:mt-0 '>
                                 <div className='ml-4 flex justify-between'>
-                                    <img className=' -ml-[1rem]' src="/asset/avatar_sm.png" alt="avatar" />
-                                    <img className=' -ml-[1rem]' src="/asset/avatar_sm.png" alt="avatar" />
-                                    <img className=' -ml-[1rem]' src="/asset/avatar_sm.png" alt="avatar" />
-                                    <img className=' -ml-[1rem]' src="/asset/avatar_sm.png" alt="avatar" />
-                                    <img className=' -ml-[1rem]' src="/asset/avatar_sm.png" alt="avatar" />
+                                    <img className=' -ml-[0.7rem]' src="/asset/avatar_sm.png" alt="avatar" />
+                                    <img className=' -ml-[0.7rem]' src="/asset/avatar_sm.png" alt="avatar" />
+                                    <img className=' -ml-[0.7rem]' src="/asset/avatar_sm.png" alt="avatar" />
+                                    <img className=' -ml-[0.7rem]' src="/asset/avatar_sm.png" alt="avatar" />
+                                    <img className=' -ml-[0.7rem]' src="/asset/avatar_sm.png" alt="avatar" />
                                 </div>
                                 <div className='mx-4'>
                                     <img src="/asset/like.svg" alt="like" />
@@ -41,8 +41,8 @@ function Index() {
                                 </div>
                             </div>
                         </div>
-                        <div className="right relative sm:col-span-3 col-span-1 " >
-                            <img src="/asset/wave.svg" className=' absolute -top-[3rem] -right-[4rem] sm:top-0 sm:right-0 sm:h-full sm:w-full rotate-90 sm:rotate-0' alt="wave" />
+                        <div className="right relative sm:relative sm:col-span-3 col-span-1 " >
+                            <img src="/asset/wave.svg" className=' absolute top-0 -right-[2.5rem] sm:top-0 sm:right-0 sm:h-full sm:w-full rotate-90 sm:rotate-0' alt="wave" />
                             <img className=' z-[1] bottom-0 hidden sm:block sm:absolute right-[-1rem]' src={banner_1} alt="banner-1" />
                         </div>
                     </div>
@@ -86,7 +86,7 @@ function Index() {
                         {
                             albums.map((each, i) => {
                                 return (<NavLink to={`/album/albums/${i}`} className='col-span-1 shrink-0 cursor-pointer w-[9rem] active:scale-110' key={each.title + '-' + i}>
-                                    <img src={each.cover} className="rounded-[1rem] w=[9rem]" alt="album" />
+                                    <img src={each.cover} className="rounded-[1rem] w-[9rem]" alt="album" />
                                     <div className='my-2 max-w-full'>
                                         {each.title}
                                     </div>

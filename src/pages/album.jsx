@@ -38,7 +38,7 @@ export default function Album() {
                                         </div>
                                         <div className='grow sm:flex sm:col-span-2'>
                                             <div className=' group-hover:text-primary-yellow font-semibold flex-1'>{each.title}</div>
-                                            <div className=' group-hover:text-primary-yellow flex-1 text-xs sm:text-base'>{each.title}</div>
+                                            <div className=' group-hover:text-primary-yellow flex-1 text-xs sm:text-base'>{album.title}</div>
 
                                         </div>
                                         <div className='sm:flex sm:justify-between sm:col-span-2'>
