@@ -1,5 +1,5 @@
 # Music Player
-Follow this link :point_right Musica(https://newtronahmed-musica.netlify.app)
+Follow this link :point_right: Musica(https://newtronahmed-musica.netlify.app)
 
 ## Welcome to the Music Player web app! This app allows you to:
 1. Play and pause songs
